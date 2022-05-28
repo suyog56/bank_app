@@ -1,5 +1,5 @@
-import numpy as np
 import pandas as pd
+import numpy as np
 import streamlit as st
 import pickle
 import warnings
@@ -7,10 +7,19 @@ warnings.filterwarnings("ignore")
 model = pickle.load(open("model.pkl","rb")) #loading the created model
 
 
+
+
+#'AGE', 'CUS_Month_Income', 'YEARS_WITH_US', 'total_debit_amount',
+       #'total_debit_transactions', 'total_credit_amount',
+       #'total_credit_transactions', 'total_transactions', 'CUS_Gender_MALE',
+       #'CUS_Target'
+
 st.set_page_config(page_title="Churn Application") #tab title
 
 #prediction function
-def predict_status(AGE, CUS_Month_Income, YEARS_WITH_US, total_debit_amount, total_debit_transactions,total_credit_amount,total_credit_transactions, total_transactions,CUS_Gender_MALE,CUS_Target):
+def predict_status(AGE, CUS_Month_Income, YEARS_WITH_US, total_debit_amount,
+total_debit_transactions,total_credit_amount,total_credit_transactions, total_transactions,CUS_Gender_MALE,CUS_Target):
+    
     input_data = np.asarray([AGE, CUS_Month_Income, YEARS_WITH_US, total_debit_amount,
     total_debit_transactions, total_credit_amount,total_credit_transactions, total_transactions,
     CUS_Gender_MALE, CUS_Target])
